@@ -28,13 +28,17 @@ public class Trabalho01_Reconhecimento_De_Padroes {
             linhas = lerTeclado.nextInt();
             System.out.print("Informe a dimensão de colunas valor igual ou superior a 3: ");
             colunas = lerTeclado.nextInt();
-        } while (linhas >= 3 && colunas >= 3);
+        } while (linhas < 3 && colunas < 3); //aqui, ele deve rodar enquanto for <3
 
         //código para criar matriz, juntamente com a quantidade de linhas e colunas lidas anteriormente/ ponto flutuante
         float matriz[][] = new float[linhas][colunas];
+        
+        //chamando as funções para poder imprimir na tela
+        funcaoGerarAleatoriedadeMatriz(matriz);
+        funcaoImprimeMatriz(matriz);
 
     }
-
+//função para imprimir a matriz gerada em funcaoGerarAleatoriedadeMatriz
     public static void funcaoImprimeMatriz(float[][] matriz) {
         float matriz2[][] = funcaoGerarAleatoriedadeMatriz(matriz);
         for (int i = 0; i < matriz2.length; i++) {
@@ -52,7 +56,8 @@ public class Trabalho01_Reconhecimento_De_Padroes {
         Random numerosAleatorios = new Random();
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
-                matriz[i][j] = numerosAleatorios.nextInt() + 1;
+                //inclusão de valor no random, pra poder gerar dentro desse valor, e +1 pra não gerar velor negativo
+                matriz[i][j] = numerosAleatorios.nextInt(5) + 1;
             }
         }
 
