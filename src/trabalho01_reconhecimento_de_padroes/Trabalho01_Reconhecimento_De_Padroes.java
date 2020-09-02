@@ -1,7 +1,7 @@
 /*Entrega de trabalho
 Nós, 
 Dalila Di Lazzaro,
-Nome completo 2
+João Pedro Santos Costa
 Nome completo 3
 declaramos que
 todas as respostas são fruto de nosso próprio trabalho,
@@ -10,6 +10,7 @@ não disponibilizamos nossas respostas para colegas externos à equipe e
 não realizamos quaisquer outras atividades desonestas para nos beneficiar ou prejudicar outros.*/
 package trabalho01_reconhecimento_de_padroes;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -32,32 +33,37 @@ public class Trabalho01_Reconhecimento_De_Padroes {
 
         //código para criar matriz, juntamente com a quantidade de linhas e colunas lidas anteriormente/ ponto flutuante
         float matriz[][] = new float[linhas][colunas];
-        
+
         //chamando as funções para poder imprimir na tela
         funcaoGerarAleatoriedadeMatriz(matriz);
-        funcaoImprimeMatriz(matriz);
+        funcaoImprimeMatriz(matriz);//void-não tem retorno
 
     }
+
 //função para imprimir a matriz gerada em funcaoGerarAleatoriedadeMatriz
     public static void funcaoImprimeMatriz(float[][] matriz) {
+
+        //linha de código para limitar a quantidade de caracteres
+        DecimalFormat valorParaDecimal = new DecimalFormat("0.00");
         float matriz2[][] = funcaoGerarAleatoriedadeMatriz(matriz);
         for (int i = 0; i < matriz2.length; i++) {
             for (int j = 0; j < matriz2[i].length; j++) {
-                System.out.print(matriz2[i][j] + " ");
+                //aqui ele imprime e limitaa quantidade de numeros para depois da virgula
+                System.out.print(valorParaDecimal.format(matriz2[i][j]) + " ");
             }
-            System.out.println("");
+            System.out.println("");//Ele pula a linha para a matriz
         }
         // return matriz2;
     }
 
 //essa função é para gerar os valores aleatórios da Matriz a partir de Random
     public static float[][] funcaoGerarAleatoriedadeMatriz(float[][] matriz) {
-        //Código Random para gerar valores aleatórios
-        Random numerosAleatorios = new Random();
+        //Código Random para gerar valores aleatórios, incluindo valor 1 para gerar de 0.0 até 1.0
+        Random numerosAleatorios = new Random(1);
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 //inclusão de valor no random, pra poder gerar dentro desse valor, e +1 pra não gerar velor negativo
-                matriz[i][j] = numerosAleatorios.nextInt(5) + 1;
+                matriz[i][j] = numerosAleatorios.nextFloat();
             }
         }
 
