@@ -38,7 +38,7 @@ public class Trabalho01_Reconhecimento_De_Padroes {
             } else if (colunas < 3) {
                 System.out.println("\nPor favor, informe uma coluna com valor igual ou maior que 3.");
                 System.out.print("Informe a dimensão de colunas valor igual ou superior a 3: ");
-            colunas = lerTeclado.nextInt();
+                colunas = lerTeclado.nextInt();
                 i++;
             }
             i++;
@@ -56,6 +56,12 @@ public class Trabalho01_Reconhecimento_De_Padroes {
     public static float[][] funcaoReconhecimentoPadroes(float[][] matriz) {
         funcaoImprimeMatriz(matriz);
 
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+
+            }
+        }
+
         return matriz;
     }
 
@@ -63,9 +69,11 @@ public class Trabalho01_Reconhecimento_De_Padroes {
     public static void funcaoImprimeMatriz(float[][] matriz) {
 
         //linha de código para limitar a quantidade de caracteres
-        DecimalFormat valorParaDecimal = new DecimalFormat("0.00");
+        DecimalFormat valorParaDecimal = new DecimalFormat("0.0");
+
         //chamando a funcaoGerarAleatoriedadeMatriz pois lá onde gerou os valores
         float matriz2[][] = funcaoGerarAleatoriedadeMatriz(matriz);
+
         for (int i = 0; i < matriz2.length; i++) {
             for (int j = 0; j < matriz2[i].length; j++) {
                 //aqui ele imprime e limita a quantidade de numeros para depois da virgula
