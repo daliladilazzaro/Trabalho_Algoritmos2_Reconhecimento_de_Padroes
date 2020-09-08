@@ -2,7 +2,7 @@
 Nós, 
 Dalila Di Lazzaro,
 João Pedro Santos Costa
-Nome completo 3
+Renê Alves da Silva
 declaramos que
 todas as respostas são fruto de nosso próprio trabalho,
 não copiamos respostas de colegas externos à equipe,
@@ -18,7 +18,8 @@ public class Trabalho01_Reconhecimento_De_Padroes {
 
    public static void main(String[] args) throws Exception{
 
-        float [][] matriz = LerArquivo("matriz.txt");   
+       //aqui ta com erro
+        double [][] matriz = LerArquivo("matriz.txt");   
      
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < 10; j++) {
@@ -31,11 +32,11 @@ public class Trabalho01_Reconhecimento_De_Padroes {
 
     }
 
-    public static float[][] funcaoReconhecimentoPadroes(float[][] matriz) {
+    public static double[][] funcaoReconhecimentoPadroes(double[][] matriz) {
         return null;
     }
 
-     public static float[][] LerArquivo(String Arquivo) throws Exception
+     public static double[][] LerArquivo(String Arquivo, double[][] matriz) throws Exception
     {
         FileReader arquivoGravado = new FileReader(Arquivo);
         
@@ -46,23 +47,25 @@ public class Trabalho01_Reconhecimento_De_Padroes {
         
         ler.close();
         
+        //converter String para double
         double linhas = Double.parseDouble(linha1);
         double colunas = Double.parseDouble(linha2); 
-        
-        double[][] m = new double[linhas][colunas];
+        //aqui ta com erro
+        matriz[][]=new double[linhas][colunas];
+      
         
         String[] dados = linha1.split(" ");
         
-        for (int i = 0; i < m.length; i++) 
+        for (int i = 0; i < matriz.length; i++) 
         {
-            for (int j = 0; j < m.length; j++) 
+            for (int j = 0; j < matriz.length; j++) 
             {
-               // m[i][j]= Float.parseFloat(dados[i][j]);
+             //ta com erro   matriz[i][j]= Float.parseFloat(dados[i][j]);
             }
             
         }
         
-        return m;
+        return matriz;
     }
 
 }
